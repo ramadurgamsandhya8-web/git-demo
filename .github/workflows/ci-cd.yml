@@ -1,4 +1,4 @@
-name: cicd
+name: CICD
 
 on:
   push:
@@ -6,20 +6,11 @@ on:
       - main
 
 jobs:
-  compile:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Compile code
-        run: echo "Compile completed successfully"
-
-  security-check:
-    needs: compile
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Security check
-        run: echo "Security scan completed successfully"
+      - name: Build
+        run: echo "Hello"
